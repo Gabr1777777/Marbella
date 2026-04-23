@@ -88,19 +88,28 @@
             text-align: center;
         }
 
+        /* EFEITO FLUTUANTE ADICIONADO AQUI */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
         .user_data__img {
             position: relative;
             width: 120px;
             height: 120px;
             margin-bottom: 10px;
+            animation: float 3s ease-in-out infinite; /* Aplica a flutuação */
         }
 
         .user_data__img img {
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            object-fit: cover;
+            object-fit: contain; /* AJUSTE PARA VER A FOTO INTEIRA */
             border: 4px solid #e91e63;
+            background-color: #252525; /* Fundo para preencher se a foto for menor */
         }
 
         /* Posicionamento do novo status dot */
