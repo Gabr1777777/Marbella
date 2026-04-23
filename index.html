@@ -60,6 +60,18 @@
             cursor: pointer;
             transition: 0.3s;
             border: 1px solid #333;
+            padding: 0; /* Ajustado para o link ocupar tudo */
+        }
+
+        /* Estilo para o link dentro da letra */
+        .aside_bar__letter a {
+            color: inherit;
+            text-decoration: none;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .aside_bar__letter:hover {
@@ -284,14 +296,14 @@
             
             <div class="box_center flex">
                 <aside class="aside_bar flex">
-                    <div class="aside_bar__letter flex"><span>M</span></div>
-                    <div class="aside_bar__letter flex"><span>A</span></div>
-                    <div class="aside_bar__letter flex"><span>R</span></div>
-                    <div class="aside_bar__letter flex"><span>B</span></div>
-                    <div class="aside_bar__letter flex"><span>E</span></div>
-                    <div class="aside_bar__letter flex"><span>L</span></div>
-                    <div class="aside_bar__letter flex"><span>L</span></div>
-                    <div class="aside_bar__letter flex"><span>A</span></div>
+                    <div class="aside_bar__letter flex"><a href="https://xat.com/LaShula" target="_blank"><span>M</span></a></div>
+                    <div class="aside_bar__letter flex"><a href="https://xat.com/LaShula" target="_blank"><span>A</span></a></div>
+                    <div class="aside_bar__letter flex"><a href="https://xat.com/LaShula" target="_blank"><span>R</span></a></div>
+                    <div class="aside_bar__letter flex"><a href="https://xat.com/LaShula" target="_blank"><span>B</span></a></div>
+                    <div class="aside_bar__letter flex"><a href="https://xat.com/LaShula" target="_blank"><span>E</span></a></div>
+                    <div class="aside_bar__letter flex"><a href="https://xat.com/LaShula" target="_blank"><span>L</span></a></div>
+                    <div class="aside_bar__letter flex"><a href="https://xat.com/LaShula" target="_blank"><span>L</span></a></div>
+                    <div class="aside_bar__letter flex"><a href="https://xat.com/LaShula" target="_blank"><span>A</span></a></div>
                 </aside>
 
                 <main class="main_content flex">
@@ -380,7 +392,6 @@
 <div id="security-alert">Copyright - Acceso prohibido</div>
 
 <script>
-    // 1. LÓGICA DO STATUS (xat API)
     async function updateStatus() {
         try {
             const res = await fetch('https://illuxat.com/api/online/chicabonita29');
@@ -404,7 +415,6 @@
     updateStatus();
     setInterval(updateStatus, 60000);
 
-    // 2. Gerenciamento de Vídeos e Autoplay
     const toggleButton = document.getElementById('toggleVideos');
     const closeButton = document.getElementById('closeVideos');
     const videoContent = document.getElementById('videoContent');
@@ -412,11 +422,8 @@
 
     toggleButton.addEventListener('click', () => {
         videoContent.classList.toggle('active');
-        
-        // Ativa o play no vídeo principal ao clicar no botão
         if (videoContent.classList.contains('active')) {
             let currentSrc = mainVideo.src;
-            // Só adiciona o autoplay se ele ainda não estiver na URL
             if (!currentSrc.includes('autoplay=1')) {
                 mainVideo.src = currentSrc + (currentSrc.includes('?') ? '&' : '?') + "autoplay=1";
             }
@@ -427,7 +434,6 @@
         videoContent.classList.remove('active');
     });
 
-    // 3. Travas de Segurança
     (function() {
         const alertBox = document.getElementById('security-alert');
 
